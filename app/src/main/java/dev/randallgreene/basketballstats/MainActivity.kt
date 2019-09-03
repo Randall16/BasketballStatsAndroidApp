@@ -2,17 +2,18 @@ package dev.randallgreene.basketballstats
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
+import android.widget.Toast
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import dev.randallgreene.basketballstats.ui.AutoCompletePlayerNameAdapter
 import dev.randallgreene.basketballstats.viewmodels.PlayerViewModel
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var searchAutoCompleteTextView: AutoCompleteTextView
     private lateinit var viewModel: PlayerViewModel
+    private lateinit var searchAutoCompleteTextView: AutoCompleteTextView
+    private var autoCompletePlayerNameAdapter: AutoCompletePlayerNameAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,30 +21,35 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(findViewById(R.id.toolbar))
 
-        searchAutoCompleteTextView = findViewById(R.id.searchAutoCompleteTextView)
-
+        setUpAutocompleteTextView()
         subscribeToViewModel()
+    }
 
+    private fun setUpAutocompleteTextView() {
+        // find and limit the search view to a single line
+        searchAutoCompleteTextView = findViewById(R.id.searchAutoCompleteTextView)
+        searchAutoCompleteTextView.setSingleLine(true)
+
+        // Make request to viewModel when user selects a player from the list\
+        searchAutoCompleteTextView.setOnItemClickListener { parent, view, position, id ->
+
+            val s = autoCompletePlayerNameAdapter?.getItem(position)?.player_id ?: "default id"
+            Toast.makeText(this, s, Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun subscribeToViewModel() {
 
         // Find the viewModel
-        viewModel = ViewModelProviders.of(this)
-            .get(PlayerViewModel::class.java)
+        viewModel = ViewModelProviders.of(this).get(PlayerViewModel::class.java)
 
         // Tell viewModel to fetch all Player Names
         viewModel.fetchPlayerInfosList()
 
-        // Observe the viewModel and change the adapter whenever the list is updated
+        // Observe the viewModel and change the autoCompletePlayerNameAdapter whenever the list is updated
         viewModel.playerInfosList.observe(this, Observer { playerInfoList ->
-            val names = arrayListOf<String>()
-            playerInfoList.forEach{ names.add("${it.name}    ${it.year_from}-${it.year_to}")  }
-
-            val adapter = ArrayAdapter<String>(this,
-                android.R.layout.simple_dropdown_item_1line, names)
-
-            searchAutoCompleteTextView.setAdapter(adapter)
+            autoCompletePlayerNameAdapter = AutoCompletePlayerNameAdapter(this, playerInfoList)
+            searchAutoCompleteTextView.setAdapter(autoCompletePlayerNameAdapter)
         })
     }
 }
