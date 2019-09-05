@@ -2,6 +2,7 @@ package dev.randallgreene.basketballstats.data.models
 
 import com.google.gson.annotations.SerializedName
 
+// Using the @SerializedName annotation to convert api snake_case response into idiomatic Kotlin camelCase
 
 data class PlayerInfo(
     val player_id: String,

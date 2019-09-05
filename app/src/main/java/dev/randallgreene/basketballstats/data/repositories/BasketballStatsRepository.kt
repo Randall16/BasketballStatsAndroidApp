@@ -1,5 +1,6 @@
 package dev.randallgreene.basketballstats.data.repositories
 
+import dev.randallgreene.basketballstats.data.models.Player
 import dev.randallgreene.basketballstats.data.models.PlayerInfo
 import dev.randallgreene.basketballstats.data.networking.BasketballStatsAPI
 
@@ -13,6 +14,12 @@ class BasketballStatsRepository {
         return playerInfos
 
         //return testList
+    }
+
+    suspend fun fetchPlayerByID(playerID: String): Player {
+        val player = basketballStatsAPI.fetchPlayerByID(playerID).await()
+
+        return player
     }
 
     // here temporarily for testing purposes, use this list to avoid making an api call
