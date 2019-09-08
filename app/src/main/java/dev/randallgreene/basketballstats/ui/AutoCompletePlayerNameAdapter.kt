@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
-import android.widget.Filter
 import android.widget.TextView
 import dev.randallgreene.basketballstats.R
 import dev.randallgreene.basketballstats.data.models.PlayerInfo
@@ -39,7 +38,7 @@ class AutoCompletePlayerNameAdapter(
         val yearFromStr = yearFrom.toString()
         val yearToStr = yearTo.toString()
 
-        val answer = yearFromStr.substring(2) + '-' + yearToStr.substring(2)
+        val answer = yearFromStr + '-' + yearToStr.substring(2)
 
         return answer
     }

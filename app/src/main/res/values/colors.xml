@@ -3,4 +3,7 @@
     <color name="colorPrimary">#17408B</color>
     <color name="colorPrimaryDark">#17408B</color>
     <color name="colorAccent">#C9082A</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="alternateRowColor">#E0E0E0</color>
 </resources>

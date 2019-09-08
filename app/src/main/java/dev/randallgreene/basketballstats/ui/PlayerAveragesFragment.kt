@@ -2,22 +2,33 @@ package dev.randallgreene.basketballstats.ui
 
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-
-import dev.randallgreene.basketballstats.R
+import androidx.lifecycle.Observer
 
 
-class PlayerAveragesFragment : Fragment() {
+class PlayerAveragesFragment : PlayerStatsFragment() {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_player_averages, container, false)
+    private lateinit var regularPlayerAveragesRecyclerViewAdapter: PlayerAveragesRecyclerViewAdapter
+    private lateinit var playoffPlayerAveragesRecyclerViewAdapter: PlayerAveragesRecyclerViewAdapter
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        regularPlayerAveragesRecyclerViewAdapter =
+            PlayerAveragesRecyclerViewAdapter(requireContext())
+        regularSeasonRecyclerView.adapter = regularPlayerAveragesRecyclerViewAdapter
+
+
+        playoffPlayerAveragesRecyclerViewAdapter =
+            PlayerAveragesRecyclerViewAdapter(requireContext())
+        playoffsRecyclerView.adapter = playoffPlayerAveragesRecyclerViewAdapter
+
+
+        viewModel.player.observe(this, Observer { player ->
+            regularPlayerAveragesRecyclerViewAdapter.setPlayerSeasonAverages(player.regularSeasonAverages)
+            playoffPlayerAveragesRecyclerViewAdapter.setPlayerSeasonAverages(player.playoffAverages)
+        })
     }
 
 

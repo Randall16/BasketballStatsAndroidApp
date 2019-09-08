@@ -1,5 +1,6 @@
 package dev.randallgreene.basketballstats.data.repositories
 
+import androidx.annotation.WorkerThread
 import dev.randallgreene.basketballstats.data.models.Player
 import dev.randallgreene.basketballstats.data.models.PlayerInfo
 import dev.randallgreene.basketballstats.data.networking.BasketballStatsAPI
@@ -8,6 +9,7 @@ class BasketballStatsRepository {
 
     private val basketballStatsAPI = BasketballStatsAPI.BasketballStatsAPI
 
+    @WorkerThread
     suspend fun fetchAllPlayerInfos(): List<PlayerInfo> {
         val playerInfos = basketballStatsAPI.fetchAllPlayerInfos().await()
 
@@ -16,6 +18,7 @@ class BasketballStatsRepository {
         //return testList
     }
 
+    @WorkerThread
     suspend fun fetchPlayerByID(playerID: String): Player {
         val player = basketballStatsAPI.fetchPlayerByID(playerID).await()
 

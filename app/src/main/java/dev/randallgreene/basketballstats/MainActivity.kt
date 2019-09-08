@@ -1,8 +1,10 @@
 package dev.randallgreene.basketballstats
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.inputmethod.InputMethodManager
 import android.widget.AutoCompleteTextView
 import android.widget.Toast
 import androidx.lifecycle.Observer
@@ -37,6 +39,10 @@ class MainActivity : AppCompatActivity() {
             val s = autoCompletePlayerNameAdapter?.getItem(position)?.player_id ?: "default id"
             Toast.makeText(this, s, Toast.LENGTH_SHORT).show()
 
+            // Hide the keyboard
+            val inputManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            inputManager.hideSoftInputFromWindow(searchAutoCompleteTextView.windowToken, 0)
+
             viewModel.fetchPlayerById(s)
         }
     }
@@ -55,8 +61,5 @@ class MainActivity : AppCompatActivity() {
             searchAutoCompleteTextView.setAdapter(autoCompletePlayerNameAdapter)
         })
 
-        viewModel.player.observe(this, Observer { player ->
-            Log.i("forTesting", player.toString())
-        })
     }
 }
