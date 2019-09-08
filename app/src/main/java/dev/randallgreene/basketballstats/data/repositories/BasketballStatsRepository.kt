@@ -11,12 +11,10 @@ class BasketballStatsRepository {
 
     @WorkerThread
     suspend fun fetchAllPlayerInfos(): List<PlayerInfo> {
-        val playerInfos = basketballStatsAPI.fetchAllPlayerInfos().await()
-
-        return playerInfos
-
+        return basketballStatsAPI.fetchAllPlayerInfos().await()
         //return testList
     }
+
 
     @WorkerThread
     suspend fun fetchPlayerByID(playerID: String): Player {

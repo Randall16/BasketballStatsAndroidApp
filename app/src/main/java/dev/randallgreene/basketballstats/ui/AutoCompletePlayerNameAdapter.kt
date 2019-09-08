@@ -28,19 +28,9 @@ class AutoCompletePlayerNameAdapter(
 
         playerInfo?.run {
             playerNameTextView.text = playerInfo.name
-            playerYearTextView.text = shortenYear(playerInfo.yearFrom, playerInfo.yearTo)
+            playerYearTextView.text = convertYearRangeToYYYYHyphenYY(playerInfo.yearFrom, playerInfo.yearTo)
         }
 
         return newConvertView
     }
-
-    private fun shortenYear(yearFrom: Int, yearTo: Int): String {
-        val yearFromStr = yearFrom.toString()
-        val yearToStr = yearTo.toString()
-
-        val answer = yearFromStr + '-' + yearToStr.substring(2)
-
-        return answer
-    }
-
 }

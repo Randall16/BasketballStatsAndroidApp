@@ -12,42 +12,46 @@
         android:id="@+id/yearTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="3"
+        android:layout_weight="8"
         android:singleLine="true"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        app:autoSizeTextType="uniform"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="10-19" />
+        tools:text="2019" />
 
     <TextView
         android:id="@+id/teamTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="3"
+        android:layout_weight="7"
         android:singleLine="true"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        app:autoSizeTextType="uniform"
         tools:text="ORL" />
 
     <TextView
         android:id="@+id/ageTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="2"
+        android:layout_weight="6"
         android:singleLine="true"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        app:autoSizeTextType="uniform"
         tools:text="22" />
 
     <TextView
         android:id="@+id/gamesPlayedTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="2"
+        android:layout_weight="6"
         android:singleLine="true"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        app:autoSizeTextType="uniform"
         tools:text="75" />
 
     <!--<TextView
@@ -84,59 +88,65 @@
         android:id="@+id/totalReboundsTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="3"
+        android:layout_weight="8"
         android:singleLine="true"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        app:autoSizeTextType="uniform"
         tools:text="5.40" />
 
     <TextView
         android:id="@+id/assistsTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="3"
+        android:layout_weight="8"
         android:singleLine="true"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        app:autoSizeTextType="uniform"
         tools:text="4.50" />
 
     <TextView
         android:id="@+id/stealsTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="3"
+        android:layout_weight="7"
         android:singleLine="true"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        app:autoSizeTextType="uniform"
         tools:text="0.91" />
 
     <TextView
         android:id="@+id/blocksTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="3"
+        android:layout_weight="7"
         android:singleLine="true"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        app:autoSizeTextType="uniform"
         tools:text="1.20" />
 
     <TextView
         android:id="@+id/turnoversTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="3"
+        android:layout_weight="7"
         android:singleLine="true"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        app:autoSizeTextType="uniform"
         tools:text="1.2" />
 
     <TextView
         android:id="@+id/pointsTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="3"
+        android:layout_weight="8"
         android:singleLine="true"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        app:autoSizeTextType="uniform"
         tools:text="18.9" />
 </LinearLayout>

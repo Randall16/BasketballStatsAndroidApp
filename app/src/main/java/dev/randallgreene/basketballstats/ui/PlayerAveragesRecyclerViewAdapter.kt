@@ -63,14 +63,14 @@ class PlayerAveragesRecyclerViewAdapter internal constructor(context: Context)
             val currentItem = items[position - 1]
             holder.yearTextView.text = currentItem.year.toString()
             holder.teamTextView.text = currentItem.team
-            holder.ageTextView.text = currentItem.age.toString()
-            holder.gamesPlayedTextView.text = currentItem.gamesPlayed.toString()
-            holder.totalReboundsTextView.text = currentItem.totalRebounds.toString()
-            holder.assistsTextView.text = currentItem.assists.toString()
-            holder.stealsTextView.text = currentItem.steals.toString()
-            holder.blocksTextView.text = currentItem.blocks.toString()
-            holder.turnoversTextView.text = currentItem.turnovers.toString()
-            holder.pointsTextView.text = currentItem.points.toString()
+            holder.ageTextView.text = currentItem.age?.toString() ?: ""
+            holder.gamesPlayedTextView.text = currentItem.gamesPlayed?.toString() ?: ""
+            holder.totalReboundsTextView.text = currentItem.totalRebounds?.toString() ?: ""
+            holder.assistsTextView.text = currentItem.assists?.toString() ?: ""
+            holder.stealsTextView.text = currentItem.steals?.toString() ?: ""
+            holder.blocksTextView.text = currentItem.blocks?.toString() ?: ""
+            holder.turnoversTextView.text = currentItem.turnovers?.toString() ?: ""
+            holder.pointsTextView.text = currentItem.points?.toString() ?: ""
 
             holder.itemView.setBackgroundColor(rowColor)
         }
