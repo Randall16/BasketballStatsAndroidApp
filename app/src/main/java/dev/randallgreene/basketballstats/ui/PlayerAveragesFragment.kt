@@ -26,8 +26,8 @@ class PlayerAveragesFragment : PlayerStatsFragment() {
 
 
         viewModel.player.observe(this, Observer { player ->
-            regularPlayerAveragesRecyclerViewAdapter.setPlayerSeasonAverages(player.regularSeasonAverages)
-            playoffPlayerAveragesRecyclerViewAdapter.setPlayerSeasonAverages(player.playoffAverages)
+            regularPlayerAveragesRecyclerViewAdapter.setPlayerSeasonAverages(player.regularSeasonStats)
+            playoffPlayerAveragesRecyclerViewAdapter.setPlayerSeasonAverages(player.playoffStats)
         })
     }
 

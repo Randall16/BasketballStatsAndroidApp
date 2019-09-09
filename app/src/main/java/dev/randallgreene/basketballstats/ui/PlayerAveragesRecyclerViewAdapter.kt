@@ -8,12 +8,12 @@ import android.widget.TextView
 import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.RecyclerView
 import dev.randallgreene.basketballstats.R
-import dev.randallgreene.basketballstats.data.models.PlayerSeasonAverages
+import dev.randallgreene.basketballstats.data.models.PlayerSeason
 
 class PlayerAveragesRecyclerViewAdapter internal constructor(context: Context)
     : RecyclerView.Adapter<PlayerAveragesRecyclerViewAdapter.SeasonAveragesItemHolder>() {
 
-    private var items = listOf<PlayerSeasonAverages>()
+    private var items = listOf<PlayerSeason>()
     private val inflater: LayoutInflater = LayoutInflater.from(context)
 
     private val whiteColor = ResourcesCompat.getColor(context.resources, R.color.white, null)
@@ -33,8 +33,8 @@ class PlayerAveragesRecyclerViewAdapter internal constructor(context: Context)
         val pointsTextView = itemView.findViewById<TextView>(R.id.pointsTextView)
     }
 
-    fun setPlayerSeasonAverages(playerSeasonAverages: List<PlayerSeasonAverages>) {
-        this.items = playerSeasonAverages
+    fun setPlayerSeasonAverages(playerSeason: List<PlayerSeason>) {
+        this.items = playerSeason
         notifyDataSetChanged()
     }
 
@@ -64,13 +64,13 @@ class PlayerAveragesRecyclerViewAdapter internal constructor(context: Context)
             holder.yearTextView.text = currentItem.year.toString()
             holder.teamTextView.text = currentItem.team
             holder.ageTextView.text = currentItem.age?.toString() ?: ""
-            holder.gamesPlayedTextView.text = currentItem.gamesPlayed?.toString() ?: ""
-            holder.totalReboundsTextView.text = currentItem.totalRebounds?.toString() ?: ""
-            holder.assistsTextView.text = currentItem.assists?.toString() ?: ""
-            holder.stealsTextView.text = currentItem.steals?.toString() ?: ""
-            holder.blocksTextView.text = currentItem.blocks?.toString() ?: ""
-            holder.turnoversTextView.text = currentItem.turnovers?.toString() ?: ""
-            holder.pointsTextView.text = currentItem.points?.toString() ?: ""
+            holder.gamesPlayedTextView.text = currentItem.totalGamesPlayed?.toString() ?: ""
+            holder.totalReboundsTextView.text = currentItem.totalReboundsPerGame?.toString() ?: ""
+            holder.assistsTextView.text = currentItem.assistsPerGame?.toString() ?: ""
+            holder.stealsTextView.text = currentItem.stealsPerGame?.toString() ?: ""
+            holder.blocksTextView.text = currentItem.blocksPerGame?.toString() ?: ""
+            holder.turnoversTextView.text = currentItem.turnoversPerGame?.toString() ?: ""
+            holder.pointsTextView.text = currentItem.pointsPerGame?.toString() ?: ""
 
             holder.itemView.setBackgroundColor(rowColor)
         }

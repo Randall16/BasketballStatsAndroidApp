@@ -16,14 +16,11 @@ data class Player(
     val colleges: String?,
     @SerializedName("hall_of_fame")
     val hallOfFame: Boolean?,
-    @SerializedName("regular_season_averages")
-    val regularSeasonAverages: List<PlayerSeasonAverages>,
-    @SerializedName("regular_season_totals")
-    val regularSeasonTotals: List<PlayerSeasonTotals>,
-    @SerializedName("playoff_averages")
-    val playoffAverages: List<PlayerSeasonAverages>,
-    @SerializedName("playoff_totals")
-    val playoffTotals: List<PlayerSeasonTotals>) {
+    @SerializedName("regular_season_stats")
+    val regularSeasonStats: List<PlayerSeason>,
+    @SerializedName("playoff_stats")
+    val playoffStats: List<PlayerSeason>
+) {
 
     /*
     private fun calculteCareerAvreages(averages: List<PlayerSeasonAverages>): PlayerSeasonAverages {
