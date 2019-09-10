@@ -1,7 +1,7 @@
 /**
  * Adapter class that enables the scrollability of child fragments.
  */
-package dev.randallgreene.basketballstats.ui
+package dev.randallgreene.basketballstats.ui.adapters
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager

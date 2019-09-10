@@ -4,6 +4,7 @@ package dev.randallgreene.basketballstats.ui
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
+import dev.randallgreene.basketballstats.ui.adapters.PlayerAveragesRecyclerViewAdapter
 
 
 class PlayerAveragesFragment : PlayerStatsFragment() {
@@ -16,12 +17,16 @@ class PlayerAveragesFragment : PlayerStatsFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         regularPlayerAveragesRecyclerViewAdapter =
-            PlayerAveragesRecyclerViewAdapter(requireContext())
+            PlayerAveragesRecyclerViewAdapter(
+                requireContext()
+            )
         regularSeasonRecyclerView.adapter = regularPlayerAveragesRecyclerViewAdapter
 
 
         playoffPlayerAveragesRecyclerViewAdapter =
-            PlayerAveragesRecyclerViewAdapter(requireContext())
+            PlayerAveragesRecyclerViewAdapter(
+                requireContext()
+            )
         playoffsRecyclerView.adapter = playoffPlayerAveragesRecyclerViewAdapter
 
 

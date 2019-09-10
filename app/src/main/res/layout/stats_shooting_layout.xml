@@ -63,7 +63,7 @@
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:autoSizeTextType="uniform"
-        tools:text="5.40" />
+        tools:text="49.9" />
 
     <TextView
         android:id="@+id/threePointPercentageTextView"
@@ -74,40 +74,40 @@
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:autoSizeTextType="uniform"
-        tools:text="4.50" />
+        tools:text="38.7" />
 
     <TextView
         android:id="@+id/twoPercentageTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="7"
+        android:layout_weight="8"
         android:singleLine="true"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:autoSizeTextType="uniform"
-        tools:text="0.91" />
+        tools:text="55.7" />
 
     <TextView
         android:id="@+id/effectiveFieldGoalPercentage"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="7"
+        android:layout_weight="8"
         android:singleLine="true"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:autoSizeTextType="uniform"
-        tools:text="1.20" />
+        tools:text="52.3" />
 
     <TextView
         android:id="@+id/freeThrowTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="7"
+        android:layout_weight="8"
         android:singleLine="true"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:autoSizeTextType="uniform"
-        tools:text="1.2" />
+        tools:text="84.3" />
 
     <TextView
         android:id="@+id/trueShootingTextView"
@@ -118,6 +118,5 @@
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:autoSizeTextType="uniform"
-        tools:text="18.9" />
-
+        tools:text="51.5" />
 </LinearLayout>

@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.viewpager.widget.ViewPager
 import dev.randallgreene.basketballstats.R
+import dev.randallgreene.basketballstats.ui.adapters.ViewPagerAdapter
 
 import kotlinx.android.synthetic.main.fragment_player_stats_container.view.*
 
@@ -32,10 +33,11 @@ class PlayerStatsContainerFragment : Fragment() {
     }
 
     private fun addAdapterToViewPager(viewPager: ViewPager) {
-        val viewPagerAdapter = ViewPagerAdapter(childFragmentManager)
+        val viewPagerAdapter =
+            ViewPagerAdapter(childFragmentManager)
 
         viewPagerAdapter.addFragment(PlayerAveragesFragment(), "Averages")
-        viewPagerAdapter.addFragment(PlayerTotalsFragment(), "Totals")
+        viewPagerAdapter.addFragment(PlayerShootingFragment(), "Shooting")
 
         viewPager.adapter = viewPagerAdapter
     }

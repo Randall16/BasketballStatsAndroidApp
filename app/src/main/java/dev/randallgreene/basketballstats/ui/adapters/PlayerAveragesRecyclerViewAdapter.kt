@@ -1,5 +1,6 @@
-package dev.randallgreene.basketballstats.ui
+package dev.randallgreene.basketballstats.ui.adapters
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -25,16 +26,16 @@ class PlayerAveragesRecyclerViewAdapter internal constructor(context: Context)
         val teamTextView = itemView.findViewById<TextView>(R.id.teamTextView)
         val ageTextView = itemView.findViewById<TextView>(R.id.ageTextView)
         val gamesPlayedTextView = itemView.findViewById<TextView>(R.id.gamesPlayedTextView)
-        val totalReboundsTextView = itemView.findViewById<TextView>(R.id.totalReboundsTextView)
-        val assistsTextView = itemView.findViewById<TextView>(R.id.assistsTextView)
-        val stealsTextView = itemView.findViewById<TextView>(R.id.stealsTextView)
-        val blocksTextView = itemView.findViewById<TextView>(R.id.blocksTextView)
-        val turnoversTextView = itemView.findViewById<TextView>(R.id.turnoversTextView)
-        val pointsTextView = itemView.findViewById<TextView>(R.id.pointsTextView)
+        val totalReboundsTextView = itemView.findViewById<TextView>(R.id.fieldGoalPercentageTextView)
+        val assistsTextView = itemView.findViewById<TextView>(R.id.threePointPercentageTextView)
+        val stealsTextView = itemView.findViewById<TextView>(R.id.twoPercentageTextView)
+        val blocksTextView = itemView.findViewById<TextView>(R.id.effectiveFieldGoalPercentage)
+        val turnoversTextView = itemView.findViewById<TextView>(R.id.freeThrowTextView)
+        val pointsTextView = itemView.findViewById<TextView>(R.id.trueShootingTextView)
     }
 
-    fun setPlayerSeasonAverages(playerSeason: List<PlayerSeason>) {
-        this.items = playerSeason
+    fun setPlayerSeasonAverages(playerSeasons: List<PlayerSeason>) {
+        this.items = playerSeasons
         notifyDataSetChanged()
     }
 
@@ -43,6 +44,7 @@ class PlayerAveragesRecyclerViewAdapter internal constructor(context: Context)
         return SeasonAveragesItemHolder(itemView)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: SeasonAveragesItemHolder, position: Int) {
 
         if (position == 0) {

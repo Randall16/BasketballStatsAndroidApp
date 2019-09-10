@@ -6,6 +6,7 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.AutoCompleteTextView
+import android.widget.TextView
 import dev.randallgreene.basketballstats.R
 
 fun convertYearToYYHyphenYY(year: Int): String {
@@ -49,4 +50,24 @@ fun AutoCompleteTextView.setupClearButtonWithAction(inputManager: InputMethodMan
         }
         return@OnTouchListener false // returning false because don't want vibration after clear
     })
+}
+
+// Below are some extensions functions to handle displaying potentially null values
+fun TextView.displayValue(number: Number?) {
+    this.text = number?.toString() ?: ""
+}
+
+fun TextView.displayValue(text: String?) {
+    this.text = text ?: ""
+}
+
+fun TextView.displayPercentValue(value: Double?) {
+    if (value == null)
+        this.text = ""
+    else if (value > 1)
+        this.text = value.toString()
+    else {
+        val percent = String.format("%.1f", value * 100)
+        this.text = percent
+    }
 }
