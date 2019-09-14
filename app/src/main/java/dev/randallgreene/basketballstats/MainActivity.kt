@@ -1,7 +1,6 @@
 package dev.randallgreene.basketballstats
 
 import android.content.Context
-import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.inputmethod.EditorInfo
@@ -10,7 +9,7 @@ import android.widget.AutoCompleteTextView
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import dev.randallgreene.basketballstats.ui.AutoCompletePlayerNameAdapter
+import dev.randallgreene.basketballstats.ui.adapters.AutoCompletePlayerNameAdapter
 import dev.randallgreene.basketballstats.ui.setupClearButtonWithAction
 import dev.randallgreene.basketballstats.viewmodels.PlayerViewModel
 
@@ -32,7 +31,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun setUpAutocompleteTextView() {
 
-        val inputManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        val inputManager = getSystemService(Context.INPUT_METHOD_SERVICE)
+                as InputMethodManager
 
         // find and limit the search view to a single line
         searchAutoCompleteTextView = findViewById(R.id.searchAutoCompleteTextView)
@@ -41,13 +41,11 @@ class MainActivity : AppCompatActivity() {
         searchAutoCompleteTextView.imeOptions = EditorInfo.IME_ACTION_DONE
 
         // Make request to viewModel when user selects a player from the list\
-        searchAutoCompleteTextView.setOnItemClickListener { parent, view, position, id ->
+        searchAutoCompleteTextView.setOnItemClickListener { _, _, position, _ ->
 
             val playerID = autoCompletePlayerNameAdapter?.getItem(position)?.player_id ?: "default id"
-            Toast.makeText(this, playerID, Toast.LENGTH_SHORT).show()
 
             // Hide the keyboard
-
             inputManager.hideSoftInputFromWindow(searchAutoCompleteTextView.windowToken, 0)
 
             searchAutoCompleteTextView.clearFocus()

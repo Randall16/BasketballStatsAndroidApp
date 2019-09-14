@@ -10,6 +10,7 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.RecyclerView
 import dev.randallgreene.basketballstats.R
 import dev.randallgreene.basketballstats.data.models.PlayerSeason
+import dev.randallgreene.basketballstats.ui.displayValue
 
 class PlayerAveragesRecyclerViewAdapter internal constructor(context: Context)
     : RecyclerView.Adapter<PlayerAveragesRecyclerViewAdapter.SeasonAveragesItemHolder>() {
@@ -63,16 +64,17 @@ class PlayerAveragesRecyclerViewAdapter internal constructor(context: Context)
         else {
             val rowColor = if (position % 2 == 0) alternateRowColor else whiteColor
             val currentItem = items[position - 1]
-            holder.yearTextView.text = currentItem.year.toString()
-            holder.teamTextView.text = currentItem.team
-            holder.ageTextView.text = currentItem.age?.toString() ?: ""
-            holder.gamesPlayedTextView.text = currentItem.totalGamesPlayed?.toString() ?: ""
-            holder.totalReboundsTextView.text = currentItem.totalReboundsPerGame?.toString() ?: ""
-            holder.assistsTextView.text = currentItem.assistsPerGame?.toString() ?: ""
-            holder.stealsTextView.text = currentItem.stealsPerGame?.toString() ?: ""
-            holder.blocksTextView.text = currentItem.blocksPerGame?.toString() ?: ""
-            holder.turnoversTextView.text = currentItem.turnoversPerGame?.toString() ?: ""
-            holder.pointsTextView.text = currentItem.pointsPerGame?.toString() ?: ""
+            holder.yearTextView.displayValue(currentItem.year)
+
+            holder.teamTextView.displayValue(currentItem.team)
+            holder.ageTextView.displayValue(currentItem.age)
+            holder.gamesPlayedTextView.displayValue(currentItem.totalGamesPlayed)
+            holder.totalReboundsTextView.displayValue(currentItem.totalReboundsPerGame)
+            holder.assistsTextView.displayValue(currentItem.assistsPerGame)
+            holder.stealsTextView.displayValue(currentItem.stealsPerGame)
+            holder.blocksTextView.displayValue(currentItem.blocksPerGame)
+            holder.turnoversTextView.displayValue(currentItem.turnoversPerGame)
+            holder.pointsTextView.displayValue(currentItem.pointsPerGame)
 
             holder.itemView.setBackgroundColor(rowColor)
         }

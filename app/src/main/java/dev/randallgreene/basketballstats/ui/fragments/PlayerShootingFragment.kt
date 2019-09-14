@@ -1,4 +1,4 @@
-package dev.randallgreene.basketballstats.ui
+package dev.randallgreene.basketballstats.ui.fragments
 
 import android.os.Bundle
 import android.view.View

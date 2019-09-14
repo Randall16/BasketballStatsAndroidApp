@@ -1,4 +1,4 @@
-package dev.randallgreene.basketballstats.ui
+package dev.randallgreene.basketballstats.ui.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -8,7 +8,7 @@ import android.widget.ArrayAdapter
 import android.widget.TextView
 import dev.randallgreene.basketballstats.R
 import dev.randallgreene.basketballstats.data.models.PlayerInfo
-
+import dev.randallgreene.basketballstats.ui.convertYearRangeToYYYYHyphenYY
 
 
 class AutoCompletePlayerNameAdapter(
@@ -28,7 +28,11 @@ class AutoCompletePlayerNameAdapter(
 
         playerInfo?.run {
             playerNameTextView.text = playerInfo.name
-            playerYearTextView.text = convertYearRangeToYYYYHyphenYY(playerInfo.yearFrom, playerInfo.yearTo)
+            playerYearTextView.text =
+                convertYearRangeToYYYYHyphenYY(
+                    playerInfo.yearFrom,
+                    playerInfo.yearTo
+                )
         }
 
         return newConvertView

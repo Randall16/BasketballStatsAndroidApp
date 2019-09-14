@@ -27,23 +27,35 @@ class PlayerViewModel(application: Application) : AndroidViewModel(application) 
     private val _player = MutableLiveData<Player>()
     val player: LiveData<Player> = _player
 
+    private val _isLoading = MutableLiveData<Boolean>()
+    val isLoading: LiveData<Boolean> = _isLoading
+
     fun fetchPlayerInfosList() {
+        _isLoading.value = true
+
         viewModelScope.launch {
             val playerInfos = basketballStatsRepository.fetchAllPlayerInfos()
+            _isLoading.postValue(false)
             _playerInfosList.postValue(playerInfos)
         }
+
     }
 
     fun fetchPlayerById(playerID: String) {
+        _isLoading.value = true
+
         viewModelScope.launch {
             val player = basketballStatsRepository.fetchPlayerByID(playerID)
+            _isLoading.postValue(false)
             _player.postValue(player)
         }
+
     }
 
     override fun onCleared() {
         super.onCleared()
         viewModelJob.cancel()
+        _isLoading.value = false
     }
 
 }
