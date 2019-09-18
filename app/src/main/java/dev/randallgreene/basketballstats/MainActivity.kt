@@ -6,9 +6,8 @@ import android.os.Bundle
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.AutoCompleteTextView
-import android.widget.Toast
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import dev.randallgreene.basketballstats.ui.adapters.AutoCompletePlayerNameAdapter
 import dev.randallgreene.basketballstats.ui.setupClearButtonWithAction
 import dev.randallgreene.basketballstats.viewmodels.PlayerViewModel
@@ -57,7 +56,7 @@ class MainActivity : AppCompatActivity() {
     private fun subscribeToViewModel() {
 
         // Find the viewModel
-        viewModel = ViewModelProviders.of(this).get(PlayerViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(PlayerViewModel::class.java)
 
         // Tell viewModel to fetch all Player Names
         viewModel.fetchPlayerInfosList()

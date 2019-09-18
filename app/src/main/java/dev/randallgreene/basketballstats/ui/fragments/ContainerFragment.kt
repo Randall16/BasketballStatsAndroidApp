@@ -9,7 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager.widget.ViewPager
 import dev.randallgreene.basketballstats.R
 import dev.randallgreene.basketballstats.ui.adapters.ViewPagerAdapter
@@ -50,11 +50,12 @@ class ContainerFragment : Fragment() {
         viewPagerAdapter.addFragment(PlayerAveragesFragment(), "Averages")
         viewPagerAdapter.addFragment(PlayerShootingFragment(), "Shooting")
 
+
         viewPager.adapter = viewPagerAdapter
     }
 
     private fun subscribeToViewModel() {
-        val viewModel = ViewModelProviders.of(requireActivity()).get(PlayerViewModel::class.java)
+        val viewModel = ViewModelProvider(requireActivity()).get(PlayerViewModel::class.java)
 
         viewModel.isLoading.observe(this, Observer {isLoading ->
             if (isLoading)
