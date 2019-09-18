@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -52,7 +52,7 @@ abstract class PlayerStatsFragment : Fragment() {
 
 
         // Find viewModel
-        _viewModel = ViewModelProviders.of(requireActivity()).get(PlayerViewModel::class.java)
+        _viewModel = ViewModelProvider(requireActivity()).get(PlayerViewModel::class.java)
     }
 
 
