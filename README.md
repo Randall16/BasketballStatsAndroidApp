@@ -1,8 +1,8 @@
 # Basketball Archive Android App
 
-This a native Android app displays the data via an AWS hosted REST API I created [here](https://github.com/Randall16/Basketball_Stats_Backend).
+This is a native Android app displays the data via an AWS hosted REST API I created [here](https://github.com/Randall16/Basketball_Stats_Backend).
 
-This app follows the [Model View View-Model architecture](https://developer.android.com/jetpack/docs/guide). It also incorporated popular libraries such as [Retrofit](https://square.github.io/retrofit/) and [Kotlin Coroutines](https://kotlinlang.org/docs/reference/coroutines-overview.html).
+This app follows the [Model View View-Model architecture](https://developer.android.com/jetpack/docs/guide). It also incorporates popular libraries such as [Retrofit](https://square.github.io/retrofit/) and [Kotlin Coroutines](https://kotlinlang.org/docs/reference/coroutines-overview.html).
 
 ### Serach For Any NBA Player:
 ![basketball_archive_screenshot_search](https://user-images.githubusercontent.com/33976994/65480089-2a54bf80-de5e-11e9-99c3-d77ae1bab84e.png)
