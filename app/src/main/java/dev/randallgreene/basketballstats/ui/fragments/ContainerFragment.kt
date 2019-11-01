@@ -49,6 +49,7 @@ class ContainerFragment : Fragment() {
 
         viewPagerAdapter.addFragment(PlayerAveragesFragment(), "Averages")
         viewPagerAdapter.addFragment(PlayerShootingFragment(), "Shooting")
+        viewPagerAdapter.addFragment(PlayerTotalsFragment(), "Totals")
 
 
         viewPager.adapter = viewPagerAdapter

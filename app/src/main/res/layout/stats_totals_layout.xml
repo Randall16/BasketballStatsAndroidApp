@@ -33,7 +33,7 @@
         tools:text="ORL" />
 
     <TextView
-        android:id="@+id/minutesTextView"
+        android:id="@+id/gamesPlayedTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="6"
@@ -44,7 +44,7 @@
         tools:text="22" />
 
     <TextView
-        android:id="@+id/gamesPlayedTextView"
+        android:id="@+id/gamesStartedTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="6"
@@ -55,68 +55,68 @@
         tools:text="75" />
 
     <TextView
-        android:id="@+id/reboundsTextView"
+        android:id="@+id/fieldGoalsTotalTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="8"
+        android:layout_weight="7"
         android:singleLine="true"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:autoSizeTextType="uniform"
-        tools:text="49.9" />
+        tools:text="256" />
 
     <TextView
-        android:id="@+id/assistsTextView"
+        android:id="@+id/fieldGoalsAttemptedTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="8"
+        android:layout_weight="7"
         android:singleLine="true"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:autoSizeTextType="uniform"
-        tools:text="38.7" />
+        tools:text="500" />
 
     <TextView
-        android:id="@+id/stealsTextView"
+        android:id="@+id/threesTotalTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="8"
+        android:layout_weight="7"
         android:singleLine="true"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:autoSizeTextType="uniform"
-        tools:text="55.7" />
+        tools:text="66" />
 
     <TextView
-        android:id="@+id/blocksTextView"
+        android:id="@+id/threesAttemptedTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="8"
+        android:layout_weight="7"
         android:singleLine="true"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:autoSizeTextType="uniform"
-        tools:text="52.3" />
+        tools:text="133" />
 
     <TextView
-        android:id="@+id/turnoversTextView"
+        android:id="@+id/freeThrowsTotalTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="8"
+        android:layout_weight="7"
         android:singleLine="true"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:autoSizeTextType="uniform"
-        tools:text="84.3" />
+        tools:text="62" />
 
     <TextView
-        android:id="@+id/pointsTextView"
+        android:id="@+id/freeThrowsAttemptedTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="8"
+        android:layout_weight="7"
         android:singleLine="true"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:autoSizeTextType="uniform"
-        tools:text="51.5" />
+        tools:text="79" />
 </LinearLayout>
