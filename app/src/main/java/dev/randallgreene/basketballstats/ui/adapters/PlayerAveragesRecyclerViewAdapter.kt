@@ -25,14 +25,14 @@ class PlayerAveragesRecyclerViewAdapter internal constructor(context: Context)
     inner class SeasonAveragesItemHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val yearTextView = itemView.findViewById<TextView>(R.id.yearTextView)
         val teamTextView = itemView.findViewById<TextView>(R.id.teamTextView)
-        val ageTextView = itemView.findViewById<TextView>(R.id.ageTextView)
         val gamesPlayedTextView = itemView.findViewById<TextView>(R.id.gamesPlayedTextView)
-        val totalReboundsTextView = itemView.findViewById<TextView>(R.id.fieldGoalPercentageTextView)
-        val assistsTextView = itemView.findViewById<TextView>(R.id.threePointPercentageTextView)
-        val stealsTextView = itemView.findViewById<TextView>(R.id.twoPercentageTextView)
-        val blocksTextView = itemView.findViewById<TextView>(R.id.effectiveFieldGoalPercentage)
-        val turnoversTextView = itemView.findViewById<TextView>(R.id.freeThrowTextView)
-        val pointsTextView = itemView.findViewById<TextView>(R.id.trueShootingTextView)
+        val minutesTextView = itemView.findViewById<TextView>(R.id.minutesTextView)
+        val totalReboundsTextView = itemView.findViewById<TextView>(R.id.reboundsTextView)
+        val assistsTextView = itemView.findViewById<TextView>(R.id.assistsTextView)
+        val stealsTextView = itemView.findViewById<TextView>(R.id.stealsTextView)
+        val blocksTextView = itemView.findViewById<TextView>(R.id.blocksTextView)
+        val turnoversTextView = itemView.findViewById<TextView>(R.id.turnoversTextView)
+        val pointsTextView = itemView.findViewById<TextView>(R.id.pointsTextView)
     }
 
     fun setPlayerSeasonAverages(playerSeasons: List<PlayerSeason>) {
@@ -51,7 +51,7 @@ class PlayerAveragesRecyclerViewAdapter internal constructor(context: Context)
         if (position == 0) {
             holder.yearTextView.text = "Year"
             holder.teamTextView.text = "Tm"
-            holder.ageTextView.text = "Age"
+            holder.minutesTextView.text = "Min"
             holder.gamesPlayedTextView.text = "GP"
             holder.totalReboundsTextView.text = "REB"
             holder.assistsTextView.text = "AST"
@@ -67,7 +67,7 @@ class PlayerAveragesRecyclerViewAdapter internal constructor(context: Context)
             holder.yearTextView.displayValue(currentItem.year)
 
             holder.teamTextView.displayValue(currentItem.team)
-            holder.ageTextView.displayValue(currentItem.age)
+            holder.minutesTextView.displayValue(currentItem.minutesPerGame)
             holder.gamesPlayedTextView.displayValue(currentItem.totalGamesPlayed)
             holder.totalReboundsTextView.displayValue(currentItem.totalReboundsPerGame)
             holder.assistsTextView.displayValue(currentItem.assistsPerGame)

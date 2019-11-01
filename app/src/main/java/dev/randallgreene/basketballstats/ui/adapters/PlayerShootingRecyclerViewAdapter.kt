@@ -26,14 +26,14 @@ class PlayerShootingRecyclerViewAdapter internal constructor(context: Context)
     inner class SeasonShootingItemHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val yearTextView = itemView.findViewById<TextView>(R.id.yearTextView)
         val teamTextView = itemView.findViewById<TextView>(R.id.teamTextView)
-        val ageTextView = itemView.findViewById<TextView>(R.id.ageTextView)
+        val ageTextView = itemView.findViewById<TextView>(R.id.minutesTextView)
         val gamesPlayedTextView = itemView.findViewById<TextView>(R.id.gamesPlayedTextView)
-        val fieldGoalPercentageTextView = itemView.findViewById<TextView>(R.id.fieldGoalPercentageTextView)
-        val threePercentageTextView = itemView.findViewById<TextView>(R.id.threePointPercentageTextView)
-        val twoPercentageTextView = itemView.findViewById<TextView>(R.id.twoPercentageTextView)
-        val effectiveFieldGoalPercentageTextView = itemView.findViewById<TextView>(R.id.effectiveFieldGoalPercentage)
-        val freeThrowPercentageTextView = itemView.findViewById<TextView>(R.id.freeThrowTextView)
-        val trueShootingPercentageTextView = itemView.findViewById<TextView>(R.id.trueShootingTextView)
+        val fieldGoalPercentageTextView = itemView.findViewById<TextView>(R.id.reboundsTextView)
+        val threePercentageTextView = itemView.findViewById<TextView>(R.id.assistsTextView)
+        val twoPercentageTextView = itemView.findViewById<TextView>(R.id.stealsTextView)
+        val effectiveFieldGoalPercentageTextView = itemView.findViewById<TextView>(R.id.blocksTextView)
+        val freeThrowPercentageTextView = itemView.findViewById<TextView>(R.id.turnoversTextView)
+        val trueShootingPercentageTextView = itemView.findViewById<TextView>(R.id.pointsTextView)
     }
 
     fun setPlayerSeasonShooting(playerSeasons: List<PlayerSeason>) {

@@ -33,17 +33,6 @@
         tools:text="ORL" />
 
     <TextView
-        android:id="@+id/ageTextView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="6"
-        android:singleLine="true"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        app:autoSizeTextType="uniform"
-        tools:text="22" />
-
-    <TextView
         android:id="@+id/gamesPlayedTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -55,7 +44,18 @@
         tools:text="75" />
 
     <TextView
-        android:id="@+id/fieldGoalPercentageTextView"
+        android:id="@+id/minutesTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="8"
+        android:singleLine="true"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        app:autoSizeTextType="uniform"
+        tools:text="22" />
+
+    <TextView
+        android:id="@+id/reboundsTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="8"
@@ -66,7 +66,7 @@
         tools:text="5.40" />
 
     <TextView
-        android:id="@+id/threePointPercentageTextView"
+        android:id="@+id/assistsTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="8"
@@ -77,7 +77,7 @@
         tools:text="4.50" />
 
     <TextView
-        android:id="@+id/twoPercentageTextView"
+        android:id="@+id/stealsTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="7"
@@ -88,7 +88,7 @@
         tools:text="0.91" />
 
     <TextView
-        android:id="@+id/effectiveFieldGoalPercentage"
+        android:id="@+id/blocksTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="7"
@@ -99,7 +99,7 @@
         tools:text="1.20" />
 
     <TextView
-        android:id="@+id/freeThrowTextView"
+        android:id="@+id/turnoversTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="7"
@@ -110,7 +110,7 @@
         tools:text="1.2" />
 
     <TextView
-        android:id="@+id/trueShootingTextView"
+        android:id="@+id/pointsTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="8"
