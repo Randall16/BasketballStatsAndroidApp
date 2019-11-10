@@ -1,6 +1,7 @@
 package dev.randallgreene.basketballstats.viewmodels
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -31,6 +32,10 @@ class PlayerViewModel(application: Application) : AndroidViewModel(application) 
     val isLoading: LiveData<Boolean> = _isLoading
 
     fun fetchPlayerInfosList() {
+
+        if (_playerInfosList.value != null && _playerInfosList.value?.size != 0)
+            return // The list has already been retrieved so need to make API call again
+
         _isLoading.value = true
 
         viewModelScope.launch {
