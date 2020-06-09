@@ -8,16 +8,19 @@ import retrofit2.http.Header
 import retrofit2.http.Path
 
 
+private const val API_KEY_INDICATOR = "x-api-key"
+
+
 interface BasketballStatsInterface {
 
     @GET("players")
-    fun fetchAllPlayerInfos(@Header("x-api-key") apiKey: String = BASKETBALL_STATS_API_KEY)
+    fun fetchAllPlayerInfos(@Header(API_KEY_INDICATOR) apiKey: String = BASKETBALL_STATS_API_KEY)
             : Deferred<List<PlayerInfo>>
 
     @GET("players/{player_id}")
     fun fetchPlayerByID(
         @Path("player_id") playerID: String,
-        @Header("x-api-key") apiKey: String = BASKETBALL_STATS_API_KEY)
-            : Deferred<Player>
+        @Header(API_KEY_INDICATOR) apiKey: String = BASKETBALL_STATS_API_KEY
+    ): Deferred<Player>
 
 }

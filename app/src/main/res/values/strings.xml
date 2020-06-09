@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BasketballStats</string>
+    <string name="app_name">Basketball Archive</string>
 
     <string name="auto_complete_hint">Enter Player Name</string>
 
