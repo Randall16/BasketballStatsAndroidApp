@@ -4,25 +4,22 @@
 package dev.randallgreene.basketballstats.ui.adapters
 
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentPagerAdapter
+import androidx.fragment.app.FragmentActivity
 
-class ViewPagerAdapter(manager: FragmentManager)
-    : FragmentPagerAdapter(manager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+import androidx.viewpager2.adapter.FragmentStateAdapter
+
+class ViewPagerAdapter(fa: FragmentActivity)
+    : FragmentStateAdapter(fa) {
 
     private val fragments = mutableListOf<Fragment>()
-    private val titles = mutableListOf<String>()
 
-    // override required methods from extending FragmentPagerAdapter
-    override fun getItem(position: Int): Fragment = fragments[position]
-
-    override fun getPageTitle(position: Int): CharSequence? = titles[position]
-
-    override fun getCount(): Int = fragments.size
-
-    // Function to add fragments into the adapter
-    fun addFragment(fragment: Fragment, title: String) {
+    fun addFragment(fragment: Fragment) {
         fragments.add(fragment)
-        titles.add(title)
     }
+
+    override fun getItemCount(): Int = fragments.size
+
+    override fun createFragment(position: Int): Fragment = fragments[position]
+
+
 }

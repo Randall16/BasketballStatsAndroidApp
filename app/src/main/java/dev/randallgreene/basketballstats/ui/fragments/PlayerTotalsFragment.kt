@@ -29,7 +29,7 @@ class PlayerTotalsFragment : PlayerStatsFragment() {
             )
         playoffsRecyclerView.adapter = playoffPlayerShootingRecyclerViewAdapter
 
-        viewModel.player.observe(this, Observer { player ->
+        viewModel.player.observe(viewLifecycleOwner, Observer { player ->
             regularPlayerShootingRecyclerViewAdapter.setPlayerSeasonShooting(player.regularSeasonStats)
             playoffPlayerShootingRecyclerViewAdapter.setPlayerSeasonShooting(player.playoffStats)
         })

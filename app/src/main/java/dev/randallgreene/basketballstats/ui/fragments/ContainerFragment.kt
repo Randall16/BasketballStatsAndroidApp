@@ -11,6 +11,9 @@ import android.widget.ProgressBar
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager.widget.ViewPager
+import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 import dev.randallgreene.basketballstats.R
 import dev.randallgreene.basketballstats.ui.adapters.ViewPagerAdapter
 import dev.randallgreene.basketballstats.viewmodels.PlayerViewModel
@@ -33,23 +36,30 @@ class ContainerFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         // Create the viewPager
-        val viewPager = view.findViewById<ViewPager>(R.id.viewPager)
+        val viewPager = view.findViewById<ViewPager2>(R.id.viewPager)
         addAdapterToViewPager(viewPager)
 
+        val tabLayout = view.findViewById<TabLayout>(R.id.tabs)
+
+        val titles = listOf("Averages", "Shooting", "Totals")
+        TabLayoutMediator(tabLayout, viewPager) { tab, position ->
+            tab.text = titles[position]
+        }.attach()
+
         // Link with tabs from xml
-        view.tabs.setupWithViewPager(viewPager)
+
 
         // set up progress bar
         progressBar = view.findViewById<ProgressBar>(R.id.progressBar)
         subscribeToViewModel()
     }
 
-    private fun addAdapterToViewPager(viewPager: ViewPager) {
-        val viewPagerAdapter = ViewPagerAdapter(childFragmentManager)
+    private fun addAdapterToViewPager(viewPager: ViewPager2) {
+        val viewPagerAdapter = ViewPagerAdapter(requireActivity())
 
-        viewPagerAdapter.addFragment(PlayerAveragesFragment(), "Averages")
-        viewPagerAdapter.addFragment(PlayerShootingFragment(), "Shooting")
-        viewPagerAdapter.addFragment(PlayerTotalsFragment(), "Totals")
+        viewPagerAdapter.addFragment(PlayerAveragesFragment())
+        viewPagerAdapter.addFragment(PlayerShootingFragment())
+        viewPagerAdapter.addFragment(PlayerTotalsFragment())
 
 
         viewPager.adapter = viewPagerAdapter
@@ -58,7 +68,7 @@ class ContainerFragment : Fragment() {
     private fun subscribeToViewModel() {
         val viewModel = ViewModelProvider(requireActivity()).get(PlayerViewModel::class.java)
 
-        viewModel.isLoading.observe(this, Observer {isLoading ->
+        viewModel.isLoading.observe(viewLifecycleOwner, Observer {isLoading ->
             if (isLoading)
                 progressBar.visibility = View.VISIBLE
             else

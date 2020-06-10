@@ -11,8 +11,8 @@ class BasketballStatsRepository {
 
     @WorkerThread
     suspend fun fetchAllPlayerInfos(): List<PlayerInfo> {
-        //return basketballStatsAPI.fetchAllPlayerInfos().await()
-        return testList
+        return basketballStatsAPI.fetchAllPlayerInfos().await()
+        //return testList
     }
 
 
@@ -25,7 +25,7 @@ class BasketballStatsRepository {
 
     // here temporarily for testing purposes, use this list to avoid making an api call while testing
     private val testList = listOf<PlayerInfo>(
-        PlayerInfo("jamesle01", "LeBron James", 2004, 2019, "F-G",
+        PlayerInfo("jamesle01", "LeBron James", 2004, 2020, "F-G",
             80, 250, "1984-12-30", null, false),
         PlayerInfo("gasolma01", "Marc Gasol", 2009, 2020, "C",
             80, 255, "1980-12-30", null, false)
