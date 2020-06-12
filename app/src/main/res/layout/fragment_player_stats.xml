@@ -15,16 +15,21 @@
             android:id="@+id/regularSeasonTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
             android:text="@string/regular_season"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/regularSesaonRecyclerView"
+            android:id="@+id/regularSeasonRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
+            android:background="@drawable/recyclerview_border"
+            android:padding="1dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -34,11 +39,14 @@
             android:id="@+id/playoffsTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
             android:text="@string/playoffs"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/regularSesaonRecyclerView" />
+            app:layout_constraintTop_toBottomOf="@+id/regularSeasonRecyclerView" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/playoffsRecyclerView"
@@ -46,6 +54,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:layout_marginBottom="8dp"
+            android:background="@drawable/recyclerview_border"
+            android:padding="1dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

@@ -44,7 +44,7 @@ abstract class PlayerStatsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         // Find recyclerviews and attach layoutManager to them
-        _regularSeasonRecyclerView = view.findViewById(R.id.regularSesaonRecyclerView)
+        _regularSeasonRecyclerView = view.findViewById(R.id.regularSeasonRecyclerView)
         _regularSeasonRecyclerView.layoutManager = LinearLayoutManager(context)
 
         _playoffsRecyclerView = view.findViewById(R.id.playoffsRecyclerView)
