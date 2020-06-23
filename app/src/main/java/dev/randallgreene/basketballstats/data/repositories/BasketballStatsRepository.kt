@@ -12,7 +12,7 @@ class BasketballStatsRepository {
     @WorkerThread
     suspend fun fetchAllPlayerInfos(): List<PlayerInfo> {
         val playerInfos = basketballStatsAPI.fetchAllPlayerInfos().await()
-        // val playerInfos = testList
+        //val playerInfos = testList
 
         return playerInfos.sortedByDescending { it.yearTo }
     }

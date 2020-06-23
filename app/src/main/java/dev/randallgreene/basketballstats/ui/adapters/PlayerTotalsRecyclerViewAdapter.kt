@@ -68,8 +68,14 @@ class PlayerTotalsRecyclerViewAdapter internal constructor(context: Context)
         else {
             val rowColor = if (position % 2 == 0) alternateRowColor else whiteColor
             val currentItem = items[position - 1]
-            holder.yearTextView.displayValue(currentItem.year)
-            holder.teamTextView.displayValue(currentItem.team)
+
+            if (currentItem.year == null)
+                holder.yearTextView.displayValue("ALL")
+            else
+                holder.yearTextView.displayValue(currentItem.year)
+
+            val team = if (currentItem.team.equals("Career")) "" else currentItem.team
+            holder.teamTextView.displayValue(team)
             holder.gamesPlayedTextView.displayValue(currentItem.totalGamesPlayed)
             holder.gamesStartedTextView.displayValue(currentItem.totalGamesStarted)
             holder.fieldGoalsTotalTextView.displayValue(currentItem.totalFieldGoalsMade)
