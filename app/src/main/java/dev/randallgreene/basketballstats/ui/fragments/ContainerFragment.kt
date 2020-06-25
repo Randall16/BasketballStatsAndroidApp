@@ -41,13 +41,10 @@ class ContainerFragment : Fragment() {
 
         val tabLayout = view.findViewById<TabLayout>(R.id.tabs)
 
-        val titles = listOf("Averages", "Shooting", "Totals")
+        val titles = listOf("Averages", "Shooting", "Per Game", "Totals")
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
             tab.text = titles[position]
         }.attach()
-
-        // Link with tabs from xml
-
 
         // set up progress bar
         progressBar = view.findViewById<ProgressBar>(R.id.progressBar)
@@ -59,8 +56,8 @@ class ContainerFragment : Fragment() {
 
         viewPagerAdapter.addFragment(PlayerAveragesFragment())
         viewPagerAdapter.addFragment(PlayerShootingFragment())
+        viewPagerAdapter.addFragment(PlayerPerGameFragment())
         viewPagerAdapter.addFragment(PlayerTotalsFragment())
-
 
         viewPager.adapter = viewPagerAdapter
     }

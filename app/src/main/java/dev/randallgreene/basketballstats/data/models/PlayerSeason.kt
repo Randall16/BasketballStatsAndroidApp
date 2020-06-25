@@ -58,6 +58,22 @@ data class PlayerSeason(
     val effectiveFieldGoalPercentage: Double?,
     @SerializedName("true_shooting_percentage")
     val trueShootingPercentage: Double?,
+    @SerializedName("field_goals_made_per_game")
+    val fieldGoalsMadePerGame: Double?,
+    @SerializedName("field_goals_attempted_per_game")
+    val fieldGoalsAttemptedPerGame: Double?,
+    @SerializedName("threes_made_per_game")
+    val threesMadePerGame: Double?,
+    @SerializedName("threes_attempted_per_game")
+    val threesAttemptedPerGame: Double?,
+    @SerializedName("twos_made_per_game")
+    val twosMadePerGame: Double?,
+    @SerializedName("twos_attempted_per_game")
+    val twosAttemptedPerGame: Double?,
+    @SerializedName("free_throws_made_per_game")
+    val freeThrowsMadePerGame: Double?,
+    @SerializedName("free_throws_attempted_per_game")
+    val freeThrowsAttemptedPerGame: Double?,
     @SerializedName("minutes_per_game")
     val minutesPerGame: Double?,
     @SerializedName("offensive_rebounds_per_game")
