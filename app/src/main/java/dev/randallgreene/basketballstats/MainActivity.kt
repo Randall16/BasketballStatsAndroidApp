@@ -42,14 +42,15 @@ class MainActivity : AppCompatActivity() {
         // Make request to viewModel when user selects a player from the list\
         searchAutoCompleteTextView.setOnItemClickListener { _, _, position, _ ->
 
-            val playerID = autoCompletePlayerNameAdapter?.getItem(position)?.player_id ?: "default id"
+            val playerID = autoCompletePlayerNameAdapter?.getItem(position)?.player_id
 
             // Hide the keyboard
             inputManager.hideSoftInputFromWindow(searchAutoCompleteTextView.windowToken, 0)
 
             searchAutoCompleteTextView.clearFocus()
 
-            viewModel.fetchPlayerById(playerID)
+            if (playerID != null && playerID.isNotEmpty())
+                viewModel.fetchPlayerById(playerID)
         }
     }
 
