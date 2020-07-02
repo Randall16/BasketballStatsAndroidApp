@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.AutoCompleteTextView
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import dev.randallgreene.basketballstats.ui.adapters.AutoCompletePlayerNameAdapter
@@ -66,6 +67,12 @@ class MainActivity : AppCompatActivity() {
         viewModel.playerInfosList.observe(this, Observer { playerInfoList ->
             autoCompletePlayerNameAdapter = AutoCompletePlayerNameAdapter(this, playerInfoList)
             searchAutoCompleteTextView.setAdapter(autoCompletePlayerNameAdapter)
+        })
+
+        // Display toast when an error occurs
+        viewModel.toastMessageObserver.observe(this, Observer { errorMessage ->
+            val toastMessage = "Error! Network request failed please try again latter"
+            Toast.makeText(this, toastMessage, Toast.LENGTH_SHORT).show()
         })
 
     }

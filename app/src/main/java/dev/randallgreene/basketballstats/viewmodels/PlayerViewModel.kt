@@ -7,6 +7,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import dev.randallgreene.basketballstats.data.models.Player
 import dev.randallgreene.basketballstats.data.models.PlayerInfo
+import dev.randallgreene.basketballstats.data.networking.Response
 import dev.randallgreene.basketballstats.data.repositories.BasketballStatsRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -31,6 +32,10 @@ class PlayerViewModel(application: Application) : AndroidViewModel(application) 
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
 
+    private val _toastMessageObserver = MutableLiveData<String>()
+    val toastMessageObserver: LiveData<String> = _toastMessageObserver
+
+    // ViewModel functions
     fun fetchPlayerInfosList() {
 
         if (_playerInfosList.value != null && _playerInfosList.value?.size != 0)
@@ -39,9 +44,13 @@ class PlayerViewModel(application: Application) : AndroidViewModel(application) 
         _isLoading.value = true
 
         viewModelScope.launch {
-            val playerInfos = basketballStatsRepository.fetchAllPlayerInfos()
+            val response = basketballStatsRepository.fetchAllPlayerInfos()
             _isLoading.postValue(false)
-            _playerInfosList.postValue(playerInfos)
+
+            when (response) {
+                is Response.Success -> _playerInfosList.postValue(response.data)
+                is Response.Error -> _toastMessageObserver.postValue(response.throwable.message)
+            }
         }
 
     }
@@ -50,11 +59,14 @@ class PlayerViewModel(application: Application) : AndroidViewModel(application) 
         _isLoading.value = true
 
         viewModelScope.launch {
-            val player = basketballStatsRepository.fetchPlayerByID(playerID)
+            val response = basketballStatsRepository.fetchPlayerByID(playerID)
             _isLoading.postValue(false)
-            _player.postValue(player)
-        }
 
+            when (response) {
+                is Response.Success -> _player.postValue(response.data)
+                is Response.Error -> _toastMessageObserver.postValue(response.throwable.message)
+            }
+        }
     }
 
     override fun onCleared() {
