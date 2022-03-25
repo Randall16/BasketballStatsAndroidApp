@@ -5,10 +5,13 @@ This is a native Android app displays the data via an AWS hosted REST API I crea
 This app follows the [Model View View-Model architecture](https://developer.android.com/jetpack/docs/guide). It also incorporates popular libraries such as [Retrofit](https://square.github.io/retrofit/) and [Kotlin Coroutines](https://kotlinlang.org/docs/reference/coroutines-overview.html).
 
 ### Serach For Any NBA Player:
-![basketball_archive_screenshot_search](https://user-images.githubusercontent.com/33976994/65480089-2a54bf80-de5e-11e9-99c3-d77ae1bab84e.png)
+<img src="https://user-images.githubusercontent.com/33976994/160054319-8efed572-d034-4dce-9574-3bd9be595134.png" width=
+"250" height="475" />
   
 ### Player Averages Statistics:
-![basketball_archive_screenshot1](https://user-images.githubusercontent.com/33976994/65480594-232eb100-de60-11e9-9b67-4ef59703fbc1.png)
+<img src="https://user-images.githubusercontent.com/33976994/160054402-d1154fe2-3c76-4a0a-8d83-d491ecde4301.png" width=
+"250" height="475" />
   
 ### Player Shooting Statistics:
-![basketball_archive_screenshot2](https://user-images.githubusercontent.com/33976994/65480113-45273400-de5e-11e9-8ce8-4567ee96be59.png)
+<img src="https://user-images.githubusercontent.com/33976994/160054413-f1d95f37-28dc-4ddf-9cde-d15e6756c363.png" width=
+"250" height="475" />
