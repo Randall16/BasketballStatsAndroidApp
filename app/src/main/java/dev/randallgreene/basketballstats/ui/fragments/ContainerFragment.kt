@@ -10,15 +10,12 @@ import android.view.ViewGroup
 import android.widget.ProgressBar
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.viewpager.widget.ViewPager
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import dev.randallgreene.basketballstats.R
 import dev.randallgreene.basketballstats.ui.adapters.ViewPagerAdapter
 import dev.randallgreene.basketballstats.viewmodels.PlayerViewModel
-
-import kotlinx.android.synthetic.main.fragment_player_stats_container.view.*
 
 
 class ContainerFragment : Fragment() {
@@ -65,7 +62,7 @@ class ContainerFragment : Fragment() {
     private fun subscribeToViewModel() {
         val viewModel = ViewModelProvider(requireActivity()).get(PlayerViewModel::class.java)
 
-        viewModel.isLoading.observe(viewLifecycleOwner, Observer {isLoading ->
+        viewModel.isLoading.observe(viewLifecycleOwner, { isLoading ->
             if (isLoading)
                 progressBar.visibility = View.VISIBLE
             else
